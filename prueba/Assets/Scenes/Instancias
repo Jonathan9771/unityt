@@ -1,0 +1,30 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Instancias : MonoBehaviour
+{
+    public GameObject PrefabPersona;
+    public int CantidadPersonas = 10;
+    GameObject[] agents;
+    // Start is called before the first frame update
+    void Start()
+    {
+        agents = new GameObject[CantidadPersonas];
+        for (int i = 0; i < CantidadPersonas; i++)
+        {
+            float x = Random.Range(-8, 0);
+            float y = 1;
+            float z = Random.Range(-8, 0);
+            agents[i] = Instantiate(PrefabPersona, new Vector3(x, y, z), Quaternion.Euler(90, 0, 0));
+            agents[i].transform.Rotate(270,0,0,Space.Self);
+        }
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}
